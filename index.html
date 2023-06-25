@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function getUrlParams() {
+            var params = {};
+            location.search.slice(1).split('&').forEach(function(param) {
+                var parts = param.split('=');
+                params[parts[0]] = decodeURIComponent(parts[1]);
+            });
+            return params;
+        }
+        window.onload = function() {
+            var params = getUrlParams();
+            var code = params['code'];
+            var email = params['email'];
+            if(code && email) {
+                window.location.href = 'http://localhost:8080/api/user/confirmemail?code=' + encodeURIComponent(code) + '&email=' + encodeURIComponent(email);
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
