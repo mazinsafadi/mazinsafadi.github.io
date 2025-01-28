@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUVO - Interior Design Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --section-padding: clamp(2rem, 5vw, 4rem);
+            --text-padding: clamp(1rem, 3vw, 2rem);
+        }
+
+        body {
+            font-family: 'Tenor Sans', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            padding: var(--section-padding);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                min-height: auto;
+                padding: calc(var(--section-padding) * 0.75);
+            }
+        }
+
+        h1, h2, h3 {
+            font-family: 'Tenor Sans', sans-serif;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #c0c0c0;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: #fff;
+        }
+
+        /* Intro Section */
+        #intro {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('04.png');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            #intro {
+                background-position: left center;
+            }
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            letter-spacing: clamp(6px, 2vw, 12px);
+            margin-bottom: clamp(1.5rem, 4vw, 3rem);
+            color: #ffffff;
+        }
+
+        #intro h1 {
+            color: #ffffff;
+            margin-bottom: clamp(1rem, 3vw, 2rem);
+            line-height: 1.2;
+        }
+
+        #intro p {
+            color: #b0b0b0;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 var(--text-padding);
+        }
+
+        /* About Section */
+        #about {
+            background: linear-gradient(rgba(28, 35, 33, 0.75), rgba(28, 35, 33, 0.75)), url('11.png');
+            background-size: cover;
+            background-position: center;
+            padding: calc(var(--section-padding) * 1.5) var(--section-padding);
+        }
+
+        #about p {
+            backdrop-filter: blur(5px);
+            padding: var(--text-padding);
+            border-radius: 8px;
+            border: 1px solid rgba(192, 192, 192, 0.2);
+            max-width: 800px;
+            margin: 1rem auto;
+            background-color: rgba(36, 36, 36, 0.4);
+        }
+
+        /* Services Section */
+        #services {
+            position: relative;
+            padding: calc(var(--section-padding) * 1.5) var(--section-padding);
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('12.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #services .services-grid,
+        #services .contact-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1.5rem, 3vw, 3rem);
+            margin-top: clamp(1.5rem, 3vw, 3rem);
+            width: 100%;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-card {
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            background-color: rgba(36, 36, 36, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(192, 192, 192, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(42, 42, 42, 0.5);
+        }
+
+        .service-card svg {
+            width: clamp(36px, 5vw, 48px);
+            height: clamp(36px, 5vw, 48px);
+            margin-bottom: 1.5rem;
+            stroke: #c0c0c0;
+            stroke-width: 1;
+            fill: none;
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.2rem, 2vw, 1.3rem);
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: #a0a0a0;
+            margin-bottom: 0;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            text-align: center;
+            margin: clamp(2rem, 4vw, 3rem) auto;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .contact-link {
+            color: #c0c0c0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            display: inline-flex;
+            align-items: center;
+            margin: 0.5rem 0;
+        }
+
+        .contact-link:hover {
+            color: #ffffff;
+        }
+
+        .whatsapp-icon {
+            transition: transform 0.3s ease;
+            margin-right: 8px;
+        }
+
+        .contact-link:hover .whatsapp-icon {
+            transform: scale(1.1);
+        }
+
+        /* Safe Area Insets */
+        @supports(padding: max(0px)) {
+            section {
+                padding-left: max(var(--section-padding), env(safe-area-inset-left));
+                padding-right: max(var(--section-padding), env(safe-area-inset-right));
+            }
+        }
+
+        /* Additional Mobile Optimizations */
+        @media (max-width: 480px) {
+            section {
+                padding-top: max(var(--section-padding), env(safe-area-inset-top));
+                padding-bottom: max(var(--section-padding), env(safe-area-inset-bottom));
+            }
+
+            #intro {
+                min-height: 100vh;
+                height: auto;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-link {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                word-break: break-word;
+            }
+
+            .whatsapp-icon {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<section id="intro">
+  <div class="logo">RUVO</div>
+  <h1>Interior Design Studio</h1>
+  <p>Creating timeless spaces that inspire</p>
+</section>
+
+<section id="about">
+  <p>Welcome to Ruvo Design, where your vision comes to life. We specialize in creating stunning interiors that embody your personal style and enhance work & living spaces. Your journey to a beautifully designed home begins here.</p>
+  <p>At Ruvo Design, we go beyond conventional interior design; we are passionate creators. Established with a commitment to excellence, our mission is to transform your ideas into captivating spaces. From innovative concepts to exquisite finishes, Ruvo Design is dedicated to making your design dreams a reality.</p>
+  <p>Our approach combines contemporary aesthetics with timeless elegance, ensuring that each project we undertake is both sophisticated and functional.</p>
+</section>
+
+<section id="services">
+  <div class="services-grid">
+    <div class="service-card">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <h3>Residential Design</h3>
+      <p>Transforming houses into personalized sanctuaries through thoughtful design and meticulous attention to detail.</p>
+    </div>
+    <div class="service-card">
+      <svg viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+        <path d="M9 4v16"/>
+        <path d="M15 4v16"/>
+        <path d="M4 9h16"/>
+        <path d="M4 15h16"/>
+      </svg>
+      <h3>Commercial Spaces</h3>
+      <p>Creating innovative workspace environments that inspire creativity and enhance productivity.</p>
+    </div>
+    <div class="service-card">
+      <svg viewBox="0 0 24 24">
+        <path d="M2 3h20"/>
+        <path d="M2 9h20"/>
+        <path d="M2 15h20"/>
+        <path d="M2 21h20"/>
+        <circle cx="12" cy="12" r="4"/>
+      </svg>
+      <h3>Space Planning</h3>
+      <p>Optimizing layouts and flow to create harmonious spaces that perfectly balance form and function.</p>
+    </div>
+    <div class="service-card">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 12h18"/>
+        <path d="M3 6h18"/>
+        <path d="M3 18h18"/>
+        <circle cx="12" cy="12" r="1"/>
+        <circle cx="12" cy="6" r="1"/>
+        <circle cx="12" cy="18" r="1"/>
+      </svg>
+      <h3>Custom Furniture</h3>
+      <p>Designing and curating bespoke furniture pieces that elevate your space with unique character.</p>
+    </div>
+  </div>
+  <div class="contact-info">
+    <p><a href="mailto:Headinhercloud@gmail.com" class="contact-link">Headinhercloud@gmail.com</a></p>
+    <p><a href="https://wa.me/971554785170" class="contact-link" target="_blank">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      +971 55 478 5170
+    </a></p>
+  </div>
+</section>
+</body>
+</html>
